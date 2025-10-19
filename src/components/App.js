@@ -40,13 +40,12 @@ const handleClick = () => {
         <div>
           <ul>
           {data.map((ele)=>
-          <li>
-            <div>
+          <li key={ele.id}>
+            
               <h1>{ele.Title} ({ele.Year})</h1>
                  <img src={ele.Poster}/>
-            </div>
           </li>)}
-          {error && <p className="error">{error}</p>}
+          {error && <div className="error">{error}</div>}
           </ul>
         </div>
       </form>
