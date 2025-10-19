@@ -37,7 +37,7 @@ const handleClick = () => {
         <h1>Search Movie</h1>
         <input type="text" placeholder="Enter movie name" onChange={(e)=>setInput(e.target.value)}/>
         <button onClick={handleClick}>Search</button>
-        <div>
+        </form>
           <ul>
           {data.map((ele)=>
           <li key={ele.id}>
@@ -47,8 +47,6 @@ const handleClick = () => {
           </li>)}
           {error && <div className="error">{error}</div>}
           </ul>
-        </div>
-      </form>
     </div>
   )
 }
