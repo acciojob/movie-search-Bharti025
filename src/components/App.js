@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from "react";
+import React,{useState} from "react";
 import './../styles/App.css';
 
 const App = () => {
@@ -33,6 +33,7 @@ const handleClick = () => {
 
   return (
     <div>
+      <form>
         <h1>Search Movie</h1>
         <input type="text" placeholder="Enter movie name" onChange={(e)=>setInput(e.target.value)}/>
         <button onClick={handleClick}>Search</button>
@@ -45,9 +46,10 @@ const handleClick = () => {
                  <img src={ele.Poster}/>
             </div>
           </li>)}
-          {error && <p>{error}</p>}
+          {error && <p className="error">{error}</p>}
           </ul>
         </div>
+      </form>
     </div>
   )
 }
