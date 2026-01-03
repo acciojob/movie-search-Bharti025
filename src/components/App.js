@@ -5,11 +5,12 @@ const App = () => {
   const [input,setInput]=useState("");
   const [data,setData]=useState([]);
   const [error,setError]=useState(null);
-  const apiKey="99eb9fd1";
+  const apiKey='99eb9fd1';
 
-const handleClick = () => {
+const handleClick = (e) => {
+  e.preventDefault();
   console.log(input);
-    if (input.trim() === "") return;
+   // if (input.trim() === "") return;
 
     const url = `https://www.omdbapi.com/?apikey=${apiKey}&s=${encodeURIComponent(input)}`;
     
@@ -33,20 +34,20 @@ const handleClick = () => {
 
   return (
     <div>
-      <form>
+      <form onSubmit={handleClick}>
         <h1>Search Movie</h1>
         <input type="text" placeholder="Enter movie name" onChange={(e)=>setInput(e.target.value)}/>
-        <button onClick={handleClick}>Search</button>
+        <button type="submit">Search</button>
         </form>
           <ul>
           {data.map((ele)=>
           <li key={ele.id}>
-            
               <h1>{ele.Title} ({ele.Year})</h1>
                  <img src={ele.Poster}/>
           </li>)}
-          {error && <div className="error">{error}</div>}
           </ul>
+          {error && <div className="error">{error}</div>}
+          
     </div>
   )
 }
